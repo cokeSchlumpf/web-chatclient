@@ -1,0 +1,109 @@
+.chat-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  font-size: 0.9em;
+}
+
+.chat-header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+
+  height: 3em;
+  line-height: 3em;
+  font-weight: bold;
+  color: #fff;
+  background-color: rgba(0,0,0,0.8);
+
+  border-radius: 5px 5px 0 0;
+  padding: 0 20px;
+}
+
+.chat-header > i.icon {
+  color: #228939;
+}
+
+.chat-header .ui.basic.button.button-close,
+.chat-header .ui.basic.button.button-close:active,
+.chat-header .ui.basic.button.button-close:visited,
+.chat-header .ui.basic.button.button-close:focus {
+  position: absolute;
+  top: 1px;
+  right: 0;
+
+  background-color: transparent !important;
+  background: none !important;
+}
+
+.chat-header .ui.basic.button.button-close:hover {
+  background-color: rgba(255,255,255,0.1) !important;
+}
+
+.chat-header .ui.basic.button.button-close i.icon {
+  color: #fff;
+}
+
+.chat-messages {
+  position: absolute;
+  top: 3em;
+  bottom: 5em;
+  left: 0;
+  right: 0;
+  overflow-y: scroll;
+
+  padding: 20px;
+  background-color: #fff;
+}
+
+.chat-messages .ui.message {
+  background-color: transparent;
+  box-shadow: none;
+  padding: 0;
+
+  font-size: 1em;
+}
+
+.chat-messages .ui.message.user {
+  text-align: right;
+}
+
+.chat-messages .ui.message .header {
+  font-size: 0.9em;
+  margin-bottom: 0.5em;
+}
+
+.chat-messages .ui.divider {
+  font-size: 0.9em;
+}
+
+.chat-messages .ui.message.hide-header .header {
+  display: none;
+}
+
+.chat-messages .ui.message.history,
+.chat-messages .ui.divider {
+  opacity: 0.5;
+}
+
+.chat-messages .typing img {
+  height: 20px;
+}
+
+.chat-input {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  height: 5em;
+  background-color: #fff;
+}
+
+.chat-input form.ui.form {
+  position: absolute;
+  bottom: 1em;
+  left: 20px;
+  right: 20px;
+}
