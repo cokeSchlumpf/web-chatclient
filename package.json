@@ -35,5 +35,5 @@
     "@storybook/addon-actions": "^3.2.15",
     "@storybook/addon-links": "^3.2.15"
   },
-  "proxy": "https://gateway.watsonplatform.net"
+  "homepage": "./"
 }
