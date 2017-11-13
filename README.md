@@ -1,6 +1,6 @@
 # Web Chat Client Component for IBM Watson Conversation
 
-This project offers a simple chat client which can be easily integrated into an existing Website to provide an user interface for a chat client. Any chat backend can be integrated, but the main purpose of this component is to comunicate with an [IBM Watson Conversation Service Backend](https://www.ibm.com/watson/services/conversation/).
+This project offers a simple chat client which can be easily integrated into an existing Website to provide an user interface for a chat client. Any chat backend can be integrated, but the main purpose of this component is to comunicate with an [IBM Watson Conversation Service](https://www.ibm.com/watson/services/conversation/) Backend.
 
 The component is designed to be integrated in an existing web page as `<iframe>`, thus there shouldn't be any complications with your existing JavaScript, CSS, etc.
 
