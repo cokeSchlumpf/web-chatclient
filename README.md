@@ -6,6 +6,8 @@ The component is designed to be integrated in an existing web page as `<iframe>`
 
 **The component itself does not implement the communication with the Backend as this can be quite different for several use cases!**
 
+![Screenshot](./screenshot.png)
+
 ## Setup
 
 1. Provide static files from './build' directory on your Web-Server, lets say via `http://localhost:8080/chat`
@@ -46,7 +48,7 @@ var wcs_config = {
       // this is a simple demo:
       chatwindow.typing_on();
       window.setTimeout(function() {
-        response.message('Watson', 'This is a demo message', new Date());
+        chatwindow.message('Watson', 'This is a demo message', new Date());
       }, 3000); 
 
       window.setTimeout(function() {
