@@ -98,6 +98,6 @@ The `chatwindow` object which is passed to `init` and `send` has the following m
 
 **typing_off()** turns off the typing indicator. Note that the typing indicator will also be turned off, when a message is received.
 
-**message(sender, message, milliseconds_timestamp)** can be called if a message should be shown as bot message.
+**message(sender, message, milliseconds_timestamp, [context])** can be called if a message should be shown as bot message.
 
 **response(watson_response)** can be called with the response, received by IBM Watson Conversation service.

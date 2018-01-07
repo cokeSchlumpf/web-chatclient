@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="./demo/styles.css">
+
+  <title>OpenWhisk Chatbot Framework Client</title>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.4/lodash.min.js"></script>
+
+  <script type="text/javascript">
+    // <![CDATA[
+    var chatbot_name = "Simple Bot";
+    var chatbot_url = "https://openwhisk.eu-de.bluemix.net/api/v1/web/wsk-chatbot-framework_sample/sample-bot-api";
+
+    function sendToBot(message, response, context) {
+      $.ajax({
+        method: 'POST',
+        url: chatbot_url + "/core-input",
+        context: document.body,
+        data: _.assign(context, {
+          message: message
+        })
+      }).done(function (result) {
+        var context = _.omit(result, 'messages');
+        var messages = _.get(result, "messages", []);
+        _.each(messages, function(message) {
+          response(message, context);
+        });
+      });
+    }
+
+    var wcs_config = {
+      handler: {
+        init: function (chatwindow) {
+          
+        },
+
+        send: function(request, response) {
+          // implement a method which calls your backend proxy
+          console.log(request);
+
+          sendToBot(request.input.text, function(message, context) {
+            response.message(chatbot_name, message, new Date(), context);
+          });
+
+          response.typing_on();
+        },
+        close: function() {
+          // This method is called when the close button is called.
+        }
+      },
+
+      initial_context: { },
+
+      settings: {
+        init: true,
+        onClose: undefined,
+        userLabel: 'You',
+        botLabel: chatbot_name,
+        title: 'How can I help you today?'
+      }
+    }
+    // ]]>
+  </script>
+</head>
+
+<body>
+  <iframe src="https://www.ibm.com/de/de"></iframe>
+
+  <iframe class="wcs-bot-window" id="wcs-bot-window" allowtransparency="true" src="/index.html"></iframe>
+</body>
+
+</html>

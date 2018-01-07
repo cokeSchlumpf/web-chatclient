@@ -12,8 +12,12 @@ const chatwindow = {
   init: () => store.dispatch(actions.init(true)),
   typing_on: () => store.dispatch(actions.botAction('typing_on')),
   typing_off: () => store.dispatch(actions.botAction('typing_off')),
-  message: (sender, message, time) => {
-    store.dispatch(actions.botMessage(sender, message, time))
+  message: (sender, message, time, context) => {
+    store.dispatch(actions.botMessage(sender, message, time));
+
+    if (context) {
+      store.dispatch(actions.contextSet(context));
+    }
   },
   response: (response) => {
     _
