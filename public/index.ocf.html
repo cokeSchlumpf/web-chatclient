@@ -27,8 +27,10 @@
         method: 'POST',
         url: chatbot_url + "/core-input",
         context: document.body,
-        data: _.assign(context, {
-          message: message
+        contentType: "application/json",
+        data: JSON.stringify({
+          message: message,
+          conversationcontext: _.get(context, 'conversationcontext', {})
         })
       }).done(function (result) {
         var context = _.omit(result, 'messages');
@@ -51,7 +53,7 @@
 
           sendToBot(request.input.text, function(message, context) {
             response.message(chatbot_name, message, new Date(), context);
-          });
+          }, request.context);
 
           response.typing_on();
         },
